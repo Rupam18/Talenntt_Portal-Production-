@@ -8,6 +8,7 @@ import codevergeLogo from './codeverge.svg'
 import { useProctoring } from './hooks/useProctoring'
 import ViolationModal from './components/ViolationModal'
 import CustomDialog from './components/CustomDialog'
+import { getApiUrl } from './apiConfig'
 import './AptitudeTest.css'
 import './AptitudeTestModal.css'
 
@@ -71,9 +72,9 @@ function AptitudeTest() {
       // - verbal     → verbal_questions table
       // - reasoning  → reasoning_questions table
       const [numericalRes, verbalRes, reasoningRes] = await Promise.all([
-        fetch('/api/aptitude-questions/numerical'),
-        fetch('/api/verbal-questions'),
-        fetch('/api/reasoning-questions')
+        fetch(getApiUrl('/api/aptitude-questions/numerical')),
+        fetch(getApiUrl('/api/verbal-questions')),
+        fetch(getApiUrl('/api/reasoning-questions'))
       ])
 
       const [numericalData, verbalData, reasoningData] = await Promise.all([
@@ -176,7 +177,7 @@ function AptitudeTest() {
       ctx.drawImage(video, 0, 0)
 
       const imageData = canvas.toDataURL('image/jpeg', 0.8)
-      await fetch('/api/camera-snapshots/capture', {
+      await fetch(getApiUrl('/api/camera-snapshots/capture'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -534,7 +535,7 @@ function AptitudeTest() {
         timeTakenSeconds: result.totalTimeSeconds || 0
       }
 
-      const response = await fetch('/api/candidate-results/save', {
+      const response = await fetch(getApiUrl('/api/candidate-results/save'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

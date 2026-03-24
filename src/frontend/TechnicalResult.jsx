@@ -22,6 +22,7 @@ import {
 
 import './TechnicalResult.css'
 import './TechnicalResultCodingRound.css'
+import { getApiUrl } from './apiConfig'
 
 // Enhanced chart components with premium animations
 const ScoreChart = ({ score, total, label, color }) => {
@@ -173,7 +174,7 @@ function TechnicalResult() {
         passed: overallPercentage >= 50, sectionData: JSON.stringify(results.sections || {})
       }
 
-      await fetch('/api/technical-test-results/save', {
+      await fetch(getApiUrl('/api/technical-test-results/save'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(resultData)

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getApiUrl } from '../../apiConfig';
 
 const QuestionManager = () => {
   const [questions, setQuestions] = useState([]);
@@ -13,8 +14,8 @@ const QuestionManager = () => {
     
     try {
       const url = type === 'aptitude' 
-        ? 'http://localhost:8081/api/questions/aptitude'
-        : 'http://localhost:8081/api/questions';
+        ? getApiUrl('/api/questions/aptitude')
+        : getApiUrl('/api/questions');
       
       const response = await fetch(url);
       

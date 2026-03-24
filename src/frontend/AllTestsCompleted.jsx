@@ -25,12 +25,12 @@ const AllTestsCompleted = () => {
   const navigate = useNavigate()
 
   const handleGoToDashboard = () => {
-    window.location.href = 'http://localhost:5173/dashboard'
+    navigate('/')
   }
 
   const handleLogout = () => {
     localStorage.clear()
-    window.location.href = 'http://localhost:5173/login'
+    navigate('/')
   }
 
   return (

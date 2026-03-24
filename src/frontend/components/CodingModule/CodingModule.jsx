@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getApiUrl } from '../../apiConfig';
 import { useNavigate } from 'react-router-dom';
 import ProblemPanel from './ProblemPanel';
 import CodeEditor from './CodeEditor';
@@ -68,7 +69,7 @@ const CodingModule = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch('/api/code-execution/coding-question');
+        const response = await fetch(getApiUrl('/api/code-execution/coding-question'));
         if (!response.ok) throw new Error('Ready to pick a question? Check your connection.');
         const data = await response.json();
         setQuestion(data);
@@ -102,7 +103,7 @@ const CodingModule = () => {
     setSubmissionResults(null);
 
     try {
-      const response = await fetch('/api/code-execution/run-code', {
+      const response = await fetch(getApiUrl('/api/code-execution/run-code'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -130,7 +131,7 @@ const CodingModule = () => {
     setExecutionResult(null);
 
     try {
-      const response = await fetch('/api/code-execution/submit-code', {
+      const response = await fetch(getApiUrl('/api/code-execution/submit-code'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

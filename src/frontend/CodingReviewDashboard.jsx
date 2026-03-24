@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Badge, Modal, Form, Table, Alert } from 'react-bootstrap'
 import { FaStar, FaClock, FaUser, FaCheckCircle, FaTimesCircle, FaEnvelope, FaEye, FaEdit, FaTrash } from 'react-icons/fa'
+import { getApiUrl } from './apiConfig'
 
 const CodingReviewDashboard = () => {
   const [submissions, setSubmissions] = useState([])
@@ -22,7 +23,7 @@ const CodingReviewDashboard = () => {
 
   const fetchSubmissions = async () => {
     try {
-      const response = await fetch('/api/coding-review/all')
+      const response = await fetch(getApiUrl('/api/coding-review/all'))
       const data = await response.json()
       setSubmissions(data)
       setLoading(false)
@@ -34,7 +35,7 @@ const CodingReviewDashboard = () => {
 
   const fetchStatistics = async () => {
     try {
-      const response = await fetch('/api/coding-review/statistics')
+      const response = await fetch(getApiUrl('/api/coding-review/statistics'))
       const data = await response.json()
       setStatistics(data)
     } catch (error) {
@@ -44,7 +45,7 @@ const CodingReviewDashboard = () => {
 
   const handleViewSubmission = async (testSessionId) => {
     try {
-      const response = await fetch(`/api/coding-review/submission/${testSessionId}`)
+      const response = await fetch(getApiUrl(`/api/coding-review/submission/${testSessionId}`))
       const data = await response.json()
       setSelectedSubmission(data)
       setShowReviewModal(true)
@@ -55,7 +56,7 @@ const CodingReviewDashboard = () => {
 
   const handleReviewQuestion = async (resultId) => {
     try {
-      const response = await fetch(`/api/coding-review/question/${resultId}/review`, {
+      const response = await fetch(getApiUrl(`/api/coding-review/question/${resultId}/review`), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -78,7 +79,7 @@ const CodingReviewDashboard = () => {
 
   const handleUpdateStatus = async () => {
     try {
-      const response = await fetch(`/api/coding-review/submission/${selectedSubmission.test_session_id}/status`, {
+      const response = await fetch(getApiUrl(`/api/coding-review/submission/${selectedSubmission.test_session_id}/status`), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -105,7 +106,7 @@ const CodingReviewDashboard = () => {
         ? 'send-qualification-email' 
         : 'send-rejection-email'
       
-      const response = await fetch(`/api/coding-review/submission/${selectedSubmission.test_session_id}/${endpoint}`, {
+      const response = await fetch(getApiUrl(`/api/coding-review/submission/${selectedSubmission.test_session_id}/${endpoint}`), {
         method: 'POST'
       })
       

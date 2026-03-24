@@ -8,6 +8,7 @@ import { setTestSubmitted } from './proctoringSession'
 import { useProctoring } from './hooks/useProctoring'
 import ViolationModal from './components/ViolationModal'
 import CustomDialog from './components/CustomDialog'
+import { getApiUrl } from './apiConfig'
 import './TechnicalTest.css'
 import './TechnicalTestModal.css'
 import './TechnicalTestSubmitModal.css'
@@ -60,7 +61,7 @@ function TechnicalTest() {
   const fetchQuestionsFromDB = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/technical-questions')
+      const response = await fetch(getApiUrl('/api/technical-questions'))
       if (response.ok) {
         const data = await response.json()
         const allQuestions = data.questions || []
@@ -409,7 +410,7 @@ function TechnicalTest() {
       ctx.drawImage(video, 0, 0)
 
       const imageData = canvas.toDataURL('image/jpeg', 0.8)
-      await fetch('/api/camera-snapshots/capture', {
+      await fetch(getApiUrl('/api/camera-snapshots/capture'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -6,6 +6,7 @@ import CameraCornerPreview from './CameraCornerPreview'
 import { stopProctoring } from './proctoringSession'
 import { useProctoring } from './hooks/useProctoring'
 import ViolationModal from './components/ViolationModal'
+import { getApiUrl } from './apiConfig'
 import './CodingTest.css'
 
 function CodingTest() {
@@ -162,7 +163,7 @@ function CodingTest() {
       ]
       
       try {
-        const response = await fetch('/api/coding-questions/all')
+        const response = await fetch(getApiUrl('/api/coding-questions/all'))
         if (response.ok) {
           const data = await response.json()
           const activeQuestions = data.filter(q => q.isActive)
@@ -215,7 +216,7 @@ function CodingTest() {
     setTestResults(results)
 
     try {
-      const response = await fetch('/api/coding-questions/submit-results', {
+      const response = await fetch(getApiUrl('/api/coding-questions/submit-results'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

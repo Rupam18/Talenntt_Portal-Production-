@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Container, Row, Col, Card, Form, Button, Alert, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { FaEnvelope, FaKey, FaArrowLeft } from 'react-icons/fa'
+import { getApiUrl } from './apiConfig'
 import './Login.css'
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
     setSuccess('')
 
     try {
-      const response = await fetch('/api/send-otp', {
+      const response = await fetch(getApiUrl('/api/send-otp'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ const Login = () => {
     setSuccess('')
 
     try {
-      const response = await fetch('/api/verify-otp', {
+      const response = await fetch(getApiUrl('/api/verify-otp'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

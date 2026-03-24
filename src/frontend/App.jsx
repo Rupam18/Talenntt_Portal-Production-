@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Container, Card, Form, Button, Row, Col, Alert } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { getApiUrl } from './apiConfig'
 import './App.css'
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
     setLoading(true)
     
     try {
-      const response = await fetch('/api/students/register', {
+      const response = await fetch(getApiUrl('/api/students/register'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

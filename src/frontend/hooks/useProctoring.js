@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { getApiUrl } from '../apiConfig'
 
 /**
  * useProctoring Hook
@@ -62,7 +63,7 @@ export const useProctoring = ({
 
         // Backend Integration
         try {
-            await fetch('/api/violations', {
+            await fetch(getApiUrl('/api/violations'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
