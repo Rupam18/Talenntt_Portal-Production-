@@ -967,3 +967,522 @@ Hibernate:
         students s1_0
 2026-03-24T10:59:44.273+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=2m11s99ms).
 2026-03-24T11:03:50.231+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=4m5s957ms).
+2026-03-24T11:34:17.180+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+2026-03-24T11:34:17.822+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@1f9ae527 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:34:17.822+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@437dcbdf (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:34:17.839+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@49cb2f26 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:34:17.839+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@13f30a16 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:34:17.847+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@1d8301ef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+2026-03-24T11:34:26.998+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=3m6s502ms).
+2026-03-24T11:34:27.567+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-5] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+2026-03-24T11:34:28.985+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-1] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+2026-03-24T11:36:17.931+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m50s931ms).
+2026-03-24T11:41:24.743+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+2026-03-24T11:41:25.171+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-4] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@1f919143 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:41:25.170+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@251a1209 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:41:25.171+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@51fe5998 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:41:25.176+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-5] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@30b3b8e6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:41:25.400+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7c9287f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T11:41:25.930+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=5m8s1ms).
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+2026-03-24T11:41:29.694+05:30  INFO 71812 --- [codeverge-talent-portal] [io-8081-exec-10] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+2026-03-24T11:44:55.077+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=2m27s569ms).
