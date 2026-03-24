@@ -1639,3 +1639,128 @@ Hibernate:
 2026-03-24T13:33:20.613+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=16m13s301ms).
 2026-03-24T13:41:37.661+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=7m13s567ms).
 2026-03-24T13:59:30.255+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=16m52s573ms).
+2026-03-24T14:37:35.963+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@2d7d1af8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T14:37:35.981+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7b6bca1f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T14:37:35.984+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@6a1fb79a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T14:37:35.987+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@2f70cafb (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T14:37:35.989+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-8] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@300b6cbb (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Hibernate: 
+    select
+        s1_0.id 
+    from
+        students s1_0 
+    where
+        upper(s1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.email=? 
+        and o1_0.is_used
+Hibernate: 
+    delete 
+    from
+        otp_codes 
+    where
+        id=?
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.expires_at<?
+Hibernate: 
+    insert 
+    into
+        otp_codes
+        (created_at, email, expires_at, is_used, otp_code) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.expires_at<?
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.email=? 
+        and o1_0.otp_code=? 
+        and not(o1_0.is_used)
+Hibernate: 
+    update
+        otp_codes 
+    set
+        created_at=?,
+        email=?,
+        expires_at=?,
+        is_used=?,
+        otp_code=? 
+    where
+        id=?
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.email=? 
+        and not(o1_0.is_used)
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0 
+    where
+        upper(s1_0.email)=upper(?)
+Hibernate: 
+    insert 
+    into
+        candidate_results
+        (created_at, email, final_result, numerical_score, reasoning_score, student_name, test_date, time_taken_minutes, time_taken_seconds, total_marks, verbal_score) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

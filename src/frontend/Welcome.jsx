@@ -66,6 +66,7 @@ const Welcome = () => {
 
   return (
     <div className="welcome-wrapper">
+      <Header />
       {/* Hero Section */}
       <section className="welcome-hero">
         {/* Modern SaaS Hero Background */}
