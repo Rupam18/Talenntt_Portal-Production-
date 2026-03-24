@@ -1768,3 +1768,57 @@ Hibernate:
 2026-03-24T15:44:07.784+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
 2026-03-24T15:44:13.570+05:30  WARN 71812 --- [codeverge-talent-portal] [io-8081-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
 2026-03-24T15:44:35.787+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2026-03-24T15:51:12.227+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2026-03-24T15:51:52.156+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7dc38d54 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T15:51:52.162+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@2eeda608 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T15:51:52.164+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@1f705198 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T15:51:52.165+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7e38c60f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T15:51:52.166+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@38744b44 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Hibernate: 
+    select
+        s1_0.id 
+    from
+        students s1_0 
+    where
+        upper(s1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.email=? 
+        and o1_0.is_used
+Hibernate: 
+    delete 
+    from
+        otp_codes 
+    where
+        id=?
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.expires_at<?
+Hibernate: 
+    insert 
+    into
+        otp_codes
+        (created_at, email, expires_at, is_used, otp_code) 
+    values
+        (?, ?, ?, ?, ?)
+2026-03-24T15:52:21.682+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
