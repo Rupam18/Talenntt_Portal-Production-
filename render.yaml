@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: talent-portal-backend
+    env: docker
+    dockerContext: src/backend
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8081
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://ep-little-voice-a4awxxfm-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: SQL_INIT_MODE
+        value: always
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:5173
+      - key: SPRING_MAIL_USERNAME
+        sync: false
+      - key: SPRING_MAIL_PASSWORD
+        sync: false
+      - key: JUDGE0_API_KEY
+        sync: false
+    healthCheckPath: /api/students

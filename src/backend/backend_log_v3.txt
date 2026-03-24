@@ -445,3 +445,525 @@ Hibernate:
 2026-03-24T10:20:27.110+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-1] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@19f7e1ae (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2026-03-24T10:20:27.111+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-1] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@6e7cbd6a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2026-03-24T10:20:27.111+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-1] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@11e121cc (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:38:51.272+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+2026-03-24T10:38:51.317+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-4] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@df7916e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:38:51.317+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-5] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@722e15da (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:38:51.342+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-5] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7ce9e5ef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:38:51.357+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-4] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@2d0d8366 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:38:51.363+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-5] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@78d67eaa (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+2026-03-24T10:40:33.933+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+2026-03-24T10:47:12.964+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=8m23s579ms).
+2026-03-24T10:52:33.090+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=5m20s132ms).
+2026-03-24T10:57:51.252+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+2026-03-24T10:59:42.376+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@d2ed509 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:59:42.376+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-6] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7c00cfc4 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:59:42.424+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@b1b48f5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:59:42.423+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@4c5d6873 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:59:42.424+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@4630a4c5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T10:59:42.443+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08003
+2026-03-24T10:59:42.443+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08003
+2026-03-24T10:59:42.443+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08003
+2026-03-24T10:59:42.443+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08003
+2026-03-24T10:59:42.443+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08003
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : QuestionHikariCP - Connection is not available, request timed out after 111094ms.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : QuestionHikariCP - Connection is not available, request timed out after 111097ms.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : This connection has been closed.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : This connection has been closed.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : QuestionHikariCP - Connection is not available, request timed out after 111097ms.
+2026-03-24T10:59:42.444+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : This connection has been closed.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : QuestionHikariCP - Connection is not available, request timed out after 111131ms.
+2026-03-24T10:59:42.443+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : QuestionHikariCP - Connection is not available, request timed out after 111131ms.
+2026-03-24T10:59:42.444+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : This connection has been closed.
+2026-03-24T10:59:42.444+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : This connection has been closed.
+2026-03-24T10:59:42.553+05:30  INFO 71812 --- [codeverge-talent-portal] [nio-8081-exec-1] c.c.t.service.QuestionService            : Fetching aptitude questions from database
+Hibernate: 
+    select
+        q1_0.id,
+        q1_0.category,
+        q1_0.constraints,
+        q1_0.correct_answer,
+        q1_0.created_at,
+        q1_0.difficulty,
+        q1_0.expected_output,
+        q1_0.hints,
+        q1_0.is_active,
+        q1_0.option_a,
+        q1_0.option_b,
+        q1_0.option_c,
+        q1_0.option_d,
+        q1_0.points,
+        q1_0.programming_language,
+        q1_0.question,
+        q1_0.sample_input,
+        q1_0.solution_code,
+        q1_0.test_cases,
+        q1_0.time_limit_minutes,
+        q1_0.type,
+        q1_0.updated_at 
+    from
+        questions q1_0 
+    where
+        upper(q1_0.type)=upper(?) 
+    order by
+        q1_0.created_at desc
+Hibernate: 
+    select
+        ttr1_0.id,
+        ttr1_0.candidate_email,
+        ttr1_0.candidate_name,
+        ttr1_0.ip_address,
+        ttr1_0.passed,
+        ttr1_0.percentage_score,
+        ttr1_0.section_data,
+        ttr1_0.submitted_at,
+        ttr1_0.technical_section_percentage,
+        ttr1_0.technical_section_score,
+        ttr1_0.technical_section_total,
+        ttr1_0.test_date,
+        ttr1_0.time_taken_seconds,
+        ttr1_0.total_answered,
+        ttr1_0.total_correct,
+        ttr1_0.total_questions,
+        ttr1_0.user_agent 
+    from
+        technical_test_results ttr1_0 
+    order by
+        ttr1_0.submitted_at desc
+Hibernate: 
+    select
+        tq1_0.id,
+        tq1_0.category,
+        tq1_0.correct_answer,
+        tq1_0.created_at,
+        tq1_0.difficulty,
+        tq1_0.option_a,
+        tq1_0.option_b,
+        tq1_0.option_c,
+        tq1_0.option_d,
+        tq1_0.question,
+        tq1_0.updated_at 
+    from
+        technical_questions tq1_0 
+    order by
+        tq1_0.created_at desc
+2026-03-24T10:59:42.535+05:30 ERROR 71812 --- [codeverge-talent-portal] [nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause
+
+org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:993) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgConnection.setNetworkTimeout(PgConnection.java:1694) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.zaxxer.hikari.pool.PoolBase.setNetworkTimeout(PoolBase.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.isConnectionDead(PoolBase.java:168) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:170) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:113) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:143) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:164) ~[spring-orm-6.1.1.jar:6.1.1]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420) ~[spring-orm-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:531) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:610) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.1.jar:6.1.1]
+	at jdk.proxy2/jdk.proxy2.$Proxy138.findAll(Unknown Source) ~[na:na]
+	at com.codeverge.talentportal.service.StudentService.getAllStudents(StudentService.java:34) ~[classes/:na]
+	at com.codeverge.talentportal.controller.StudentController.getAllStudents(StudentController.java:52) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+Hibernate: 
+    select
+        cr1_0.id,
+        cr1_0.created_at,
+        cr1_0.email,
+        cr1_0.final_result,
+        cr1_0.numerical_score,
+        cr1_0.reasoning_score,
+        cr1_0.student_name,
+        cr1_0.test_date,
+        cr1_0.time_taken_minutes,
+        cr1_0.time_taken_seconds,
+        cr1_0.total_marks,
+        cr1_0.verbal_score 
+    from
+        candidate_results cr1_0
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.college,
+        s1_0.created_at,
+        s1_0.education,
+        s1_0.email,
+        s1_0.first_name,
+        s1_0.last_name,
+        s1_0.phone_number,
+        s1_0.skills,
+        s1_0.year_of_study 
+    from
+        students s1_0
+2026-03-24T10:59:44.273+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=2m11s99ms).
+2026-03-24T11:03:50.231+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=4m5s957ms).
