@@ -1,4 +1,5 @@
 services:
+  # Backend Web Service
   - type: web
     name: talent-portal-backend
     env: docker
@@ -16,7 +17,15 @@ services:
       - key: SQL_INIT_MODE
         value: always
       - key: ALLOWED_ORIGINS
-        value: http://localhost:5173
+        fromService:
+          type: static
+          name: talent-portal-frontend
+          property: url
+      - key: FRONTEND_URL
+        fromService:
+          type: static
+          name: talent-portal-frontend
+          property: url
       - key: SPRING_MAIL_USERNAME
         sync: false
       - key: SPRING_MAIL_PASSWORD
@@ -26,3 +35,16 @@ services:
       - key: JWT_SECRET
         sync: false
     healthCheckPath: /api/students
+
+  # Frontend Static Site
+  - type: static
+    name: talent-portal-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: talent-portal-backend
+          property: url

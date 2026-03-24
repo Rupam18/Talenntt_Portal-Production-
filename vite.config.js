@@ -8,6 +8,15 @@ export default defineConfig({
     include: ['@monaco-editor/react']
   },
   root: './src/frontend',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          monaco: ['monaco-editor']
+        }
+      }
+    }
+  },
   server: {
     port: 5173,
     proxy: {
