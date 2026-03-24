@@ -15,6 +15,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
     
+    @org.springframework.beans.factory.annotation.Value("${spring.web.cors.allowed-origins:http://localhost:5173}")
+    private String allowedOrigins;
+    
     public SecurityConfig() {
         System.out.println("DEBUG: SecurityConfig initialized");
     }
@@ -39,12 +42,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(java.util.List.of(
-            "http://localhost:5173",
-            "http://127.0.0.1:5173",
-            "http://localhost:5174",
-            "http://127.0.0.1:5174"
-        ));
+        config.setAllowedOrigins(java.util.Arrays.asList(allowedOrigins.split(",")));
         config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(java.util.List.of("*"));
         config.setMaxAge(3600L);

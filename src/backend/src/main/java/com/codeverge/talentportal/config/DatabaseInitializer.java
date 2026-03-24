@@ -11,6 +11,9 @@ public class DatabaseInitializer implements CommandLineRunner {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @org.springframework.beans.factory.annotation.Value("${frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println("🚀 Initializing database tables...");
@@ -309,7 +312,7 @@ public class DatabaseInitializer implements CommandLineRunner {
 
                     Best regards,
                     The Talent Portal Team',
-                    '{"user_name": "User Name", "total_questions": "5", "admin_rating": "8.5", "time_taken": "45 minutes", "dashboard_url": "http://localhost:5173/dashboard"}'::jsonb
+                    '{"user_name": "User Name", "total_questions": "5", "admin_rating": "8.5", "time_taken": "45 minutes", "dashboard_url": "' + frontendUrl + '/dashboard"}'::jsonb
                 )
             """;
             

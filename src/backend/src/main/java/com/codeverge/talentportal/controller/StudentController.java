@@ -30,6 +30,9 @@ public class StudentController {
     @Autowired
     private EmailService emailService;
     
+    @org.springframework.beans.factory.annotation.Value("${frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+    
     @PostMapping("/register")
     public ResponseEntity<?> registerStudent(@Valid @RequestBody Student student) {
         try {
@@ -120,7 +123,7 @@ public class StudentController {
                     "You are now invited to begin the first round - the Aptitude Test.\n\n" +
                     "Please follow the steps below to start the test:\n\n" +
                     "1. Go to the following link:\n" +
-                    "http://localhost:5173/\n\n" +
+                    frontendUrl + "/\n\n" +
                     "2. Click on \"Get Start\".\n\n" +
                     "3. Enter your email address.\n\n" +
                     "4. An OTP will be sent to your email.\n\n" +

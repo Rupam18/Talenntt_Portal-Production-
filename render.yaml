@@ -23,4 +23,6 @@ services:
         sync: false
       - key: JUDGE0_API_KEY
         sync: false
+      - key: JWT_SECRET
+        sync: false
     healthCheckPath: /api/students

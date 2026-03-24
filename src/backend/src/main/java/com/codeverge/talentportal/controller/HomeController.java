@@ -7,6 +7,9 @@ import java.util.Map;
 
 @RestController
 public class HomeController {
+    
+    @org.springframework.beans.factory.annotation.Value("${frontend.url:http://localhost:5173}")
+    private String frontendUrl;
 
     @GetMapping("/")
     public Map<String, String> home() {
@@ -14,7 +17,7 @@ public class HomeController {
         status.put("status", "UP");
         status.put("message", "Codeverge Talent Portal API is running.");
         status.put("environment", "PostgreSQL (Neon)");
-        status.put("frontend_url", "http://localhost:5173");
+        status.put("frontend_url", frontendUrl);
         return status;
     }
 }

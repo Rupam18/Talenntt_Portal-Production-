@@ -12,7 +12,8 @@ import java.util.Map;
 @Component
 public class JwtUtil {
     
-    private static final String SECRET_KEY = "codeverge-talent-portal-secret-key-for-jwt-token-generation";
+    @org.springframework.beans.factory.annotation.Value("${JWT_SECRET:codeverge-talent-portal-secret-key-for-jwt-token-generation-that-must-be-long-enough}")
+    private String SECRET_KEY;
     private static final long EXPIRATION_TIME = 86400000; // 24 hours
     
     private Key getSigningKey() {
