@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { Alert, Badge, Button, Card, Col, Container, Form, Row, Modal, ProgressBar } from 'react-bootstrap'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaArrowRight, FaClock, FaQuestionCircle, FaCheckCircle, FaTimesCircle, FaPlay, FaSpinner, FaExclamationTriangle } from 'react-icons/fa'
-import codevergeLogo from './codeverge.svg'
 import CameraCornerPreview from './CameraCornerPreview'
 import { setTestSubmitted } from './proctoringSession'
 import { useProctoring } from './hooks/useProctoring'
@@ -431,7 +430,7 @@ function TechnicalTest() {
         <div className="test-header">
           <div className="test-header-content">
             <div className="test-header-left">
-              <img src={codevergeLogo} alt="Codeverge" className="test-header-logo" />
+              <img src="/codeverge.svg" alt="Codeverge" className="test-header-logo" />
             </div>
             <div className="test-header-info">
               <h5>Loading technical questions...</h5>
@@ -453,7 +452,7 @@ function TechnicalTest() {
       <div className="test-header">
         <div className="test-header-content">
           <div className="test-header-left">
-            <img src={codevergeLogo} alt="Codeverge" className="test-header-logo" />
+            <img src="/codeverge.svg" alt="Codeverge" className="test-header-logo" />
           </div>
           <div className="test-header-center">
             <Badge bg="dark">Question {currentSectionCount ? Math.min(activeQuestion + 1, currentSectionCount) : 0} / {currentSectionCount}</Badge>

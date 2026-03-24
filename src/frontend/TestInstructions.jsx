@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Container, Row, Col, Card, Button, Alert, Modal } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { FaClock, FaCheckCircle, FaExclamationTriangle, FaPlay, FaArrowLeft } from 'react-icons/fa'
-import codevergeLogo from './codeverge.svg'
 import './TestInstructions.css'
 
 const TestInstructions = () => {
@@ -95,7 +94,7 @@ const TestInstructions = () => {
                 {/* Logo */}
                 <div className="text-center mb-4">
                   <img 
-                    src={codevergeLogo} 
+                    src="/codeverge.svg" 
                     alt="Codeverge Logo" 
                     className="test-instructions-logo"
                   />

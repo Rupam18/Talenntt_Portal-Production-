@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaArrowRight, FaClock, FaQuestionCircle, FaCheckCircle, FaTimesCircle, FaPlay, FaSpinner } from 'react-icons/fa'
 import CameraCornerPreview from './CameraCornerPreview'
 import { setTestSubmitted } from './proctoringSession'
-import codevergeLogo from './codeverge.svg'
 import { useProctoring } from './hooks/useProctoring'
 import ViolationModal from './components/ViolationModal'
 import CustomDialog from './components/CustomDialog'
@@ -644,7 +643,7 @@ function AptitudeTest() {
         <div className="test-header">
           <div className="test-header-content">
             <div className="test-header-left">
-              <img src={codevergeLogo} alt="Codeverge" className="test-header-logo" />
+              <img src="/codeverge.svg" alt="Codeverge" className="test-header-logo" />
             </div>
             <div className="test-header-info">
               <h5>Loading questions...</h5>
@@ -664,7 +663,7 @@ function AptitudeTest() {
       <div className="test-header">
         <div className="test-header-content">
           <div className="test-header-left">
-            <img src={codevergeLogo} alt="Codeverge" className="test-header-logo" />
+            <img src="/codeverge.svg" alt="Codeverge" className="test-header-logo" />
           </div>
           <div className="test-header-center">
             <Badge bg="dark">Question {activeQuestion + 1} / 20</Badge>

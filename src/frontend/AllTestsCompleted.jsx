@@ -18,7 +18,6 @@ import {
   FaClipboardCheck,
   FaCode
 } from 'react-icons/fa'
-import codevergeLogo from './codeverge.svg'
 import './AllTestsCompleted.css'
 
 const AllTestsCompleted = () => {

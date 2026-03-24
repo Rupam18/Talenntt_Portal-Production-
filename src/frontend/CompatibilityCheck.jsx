@@ -3,7 +3,6 @@ import { Alert, Button, Card, Col, Container, Row, Spinner } from 'react-bootstr
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FaCamera, FaCheckCircle, FaDesktop, FaMicrophone, FaTimesCircle, FaVideo } from 'react-icons/fa'
 import { getProctoringStream, isProctoringActive, startProctoring } from './proctoringSession'
-import codevergeLogo from './codeverge.svg'
 import './CompatibilityCheck.css'
 
 const CompatibilityCheck = () => {
@@ -78,7 +77,7 @@ const CompatibilityCheck = () => {
                 {/* Logo */}
                 <div className="text-center mb-4">
                   <img 
-                    src={codevergeLogo} 
+                    src="/codeverge.svg" 
                     alt="Codeverge Logo" 
                     className="compat-logo"
                   />
