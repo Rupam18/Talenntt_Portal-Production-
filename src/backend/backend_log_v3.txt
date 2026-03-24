@@ -1823,3 +1823,55 @@ Hibernate:
         (?, ?, ?, ?, ?)
 2026-03-24T15:52:21.682+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
 2026-03-24T15:55:46.872+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2026-03-24T16:42:12.607+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@3cd16723 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T16:42:12.615+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@71992259 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T16:42:12.616+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@48cf796c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T16:42:12.616+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7f10e729 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-03-24T16:42:12.617+05:30  WARN 71812 --- [codeverge-talent-portal] [nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : QuestionHikariCP - Failed to validate connection org.postgresql.jdbc.PgConnection@7350c743 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+Hibernate: 
+    select
+        s1_0.id 
+    from
+        students s1_0 
+    where
+        upper(s1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.email=? 
+        and o1_0.is_used
+Hibernate: 
+    select
+        o1_0.id,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.is_used,
+        o1_0.otp_code 
+    from
+        otp_codes o1_0 
+    where
+        o1_0.expires_at<?
+Hibernate: 
+    insert 
+    into
+        otp_codes
+        (created_at, email, expires_at, is_used, otp_code) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    delete 
+    from
+        otp_codes 
+    where
+        id=?
