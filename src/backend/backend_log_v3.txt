@@ -1631,3 +1631,11 @@ Hibernate:
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ✅ Technical test pass email sent to: rupamsarangi2001@gmail.com
 ✅ Technical test pass email sent to: rupamsarangi2001@gmail.com
+2026-03-24T13:00:21.628+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=55s885ms).
+2026-03-24T13:05:04.614+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=4m42s996ms).
+2026-03-24T13:07:22.340+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m47s709ms).
+2026-03-24T13:10:01.213+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=2m38s873ms).
+2026-03-24T13:16:37.293+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=6m6s54ms).
+2026-03-24T13:33:20.613+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=16m13s301ms).
+2026-03-24T13:41:37.661+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=7m13s567ms).
+2026-03-24T13:59:30.255+05:30  WARN 71812 --- [codeverge-talent-portal] [iCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : QuestionHikariCP - Thread starvation or clock leap detected (housekeeper delta=16m52s573ms).
