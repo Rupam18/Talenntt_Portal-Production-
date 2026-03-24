@@ -9,6 +9,9 @@ export default defineConfig({
   },
   root: './src/frontend',
   build: {
+    outDir: '../../dist',
+    emptyOutDir: true,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks: {
